@@ -1,0 +1,65 @@
+version: '3.9'
+
+services:
+
+  first_server:
+    image: mysql:5.7
+    platform: linux/x86_64
+    container_name: ${FIRST_SERVER_CONTAINER_NAME}
+    restart: always
+    volumes:
+        - first_server-volume:/var/lib/mysql
+    environment:
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_DATABASE: ${FIRST_DATABASE_NAME}
+        MYSQL_USER: ${FIRST_USER}
+        MYSQL_PASSWORD: ${FIRST_PASSWORD}
+
+  second_server:
+    image: mysql:8.0
+    platform: linux/x86_64
+    container_name: ${SECOND_SERVER_CONTAINER_NAME}
+    restart: always
+    volumes:
+        - second_server-volume:/var/lib/mysql
+    environment:
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_DATABASE: ${SECOND_DATABASE_NAME}
+        MYSQL_USER: ${SECOND_USER}
+        MYSQL_PASSWORD: ${SECOND_PASSWORD}
+
+  third_server:
+    image: mysql:5.7-debian
+    platform: linux/x86_64
+    container_name: ${THIRD_SERVER_CONTAINER_NAME}
+    restart: always
+    volumes:
+        - third_server-volume:/var/lib/mysql
+    environment:
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_DATABASE: ${THIRD_DATABASE_NAME}
+        MYSQL_USER: ${THIRD_USER}
+        MYSQL_PASSWORD: ${THIRD_PASSWORD}
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: ${PROJECT_NAME}
+    restart: always
+    ports:
+      - ${PMA_PORT}:80
+    environment:
+      PMA_HOSTS: ${FIRST_SERVER_CONTAINER_NAME},${SECOND_SERVER_CONTAINER_NAME},${THIRD_SERVER_CONTAINER_NAME}
+      PMA_PORTS: ${MYSQL_PORT},${MYSQL_PORT},${MYSQL_PORT}
+
+
+volumes:
+  first_server-volume:
+    name: first_server-volume
+  second_server-volume:
+    name: second_server-volume
+  third_server-volume:
+    name: third_server-volume
+
+networks:
+  default:
+    name: ${NETWORK_NAME}
