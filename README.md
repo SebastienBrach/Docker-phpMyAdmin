@@ -23,5 +23,6 @@ then it will automatically combine the MySQL host and the MySQL port.
 ![pma_conf2](https://user-images.githubusercontent.com/55393279/178078198-49560824-56bd-4f48-b221-48431032061a.png) <br>
 
 For user authentication, if you don't specify ```PMA_USER``` && ```PMA_PASSWORD```, the user and the password will be ```MYSQL_USER``` && ```MYSQL_PASSWORD``` environment variables defined in each MySQL services in docker compose. <br>
+<img width="586" alt="Capture d’écran 2022-07-08 à 23 37 43" src="https://user-images.githubusercontent.com/55393279/178079030-0cc83ffd-5e0c-4b5c-9590-25611e4de2b7.png">
 
 We are here on the same docker compose, but il can also easily work if not. You just need to defined (like I did) the same network on each docker-compose (or pass the --network argument in a docker run command).
