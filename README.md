@@ -17,8 +17,10 @@ docker-compose file version 3.9 <br>
 
 ## Explanation
 By specifying ```PMA_HOSTS``` && ```PMA_PORTS``` environment variables to PMA, it will understand that we have more than one server.
-You can find the answer in this <a href="https://github.com/phpmyadmin/docker/blob/master/apache/config.inc.php#L59">file</a>
+<a href="https://github.com/phpmyadmin/docker/blob/master/apache/config.inc.php#L59">Here</a> is how it work
 ![pma_conf](https://user-images.githubusercontent.com/55393279/178077464-356a6b30-bbb0-4fc3-8659-0c348b7bb2eb.png)
+then 
+![pma_conf2](https://user-images.githubusercontent.com/55393279/178078198-49560824-56bd-4f48-b221-48431032061a.png)
 
 
 It can of course work if the servers are not in the same compose. You just need to defined (like I did) the same network on each docker-compose (or in a docker run command, pass the --network argument).
