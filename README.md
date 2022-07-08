@@ -16,7 +16,7 @@ docker-compose file version 3.9 <br>
 * Type the command ```docker-compose up -d```. It will automatically download images, create containers, volumes and network. If you have this error : ```ERROR: no matching manifest for linux/arm64/v8 in the manifest list entries```, you probably need to uncomment ```platform: linux/x86_64```.
 
 ## Explanation
-By specifying ```PMA_HOSTS``` && ```PMA_PORTS``` environment variables to PMA, it will understand that we have more than one server.
+By specifying ```PMA_HOSTS``` && ```PMA_PORTS``` environment variables to PMA, it will understand that we have more than one server.<br>
 <a href="https://github.com/phpmyadmin/docker/blob/master/apache/config.inc.php#L59">Here</a> is how it work
 ![pma_conf](https://user-images.githubusercontent.com/55393279/178077464-356a6b30-bbb0-4fc3-8659-0c348b7bb2eb.png)
 then 
