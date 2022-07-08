@@ -4,7 +4,7 @@ services:
 
   first_server:
     image: mysql:5.7
-    platform: linux/x86_64
+    #platform: linux/x86_64
     container_name: ${FIRST_SERVER_CONTAINER_NAME}
     restart: always
     volumes:
@@ -17,7 +17,7 @@ services:
 
   second_server:
     image: mysql:8.0
-    platform: linux/x86_64
+    #platform: linux/x86_64
     container_name: ${SECOND_SERVER_CONTAINER_NAME}
     restart: always
     volumes:
@@ -30,7 +30,7 @@ services:
 
   third_server:
     image: mysql:5.7-debian
-    platform: linux/x86_64
+    #platform: linux/x86_64
     container_name: ${THIRD_SERVER_CONTAINER_NAME}
     restart: always
     volumes:
