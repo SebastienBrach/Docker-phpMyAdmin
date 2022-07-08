@@ -11,4 +11,8 @@ Docker version 20.10.17, build 100c701 <br>
 docker-compose version 1.29.2, build 5becea4c <br>
 docker-compose file version 3.9 <br>
 
-## .env.example
+## Run it
+* Copy .env.example file to .env
+* Type the command ```docker-compose up -d```. It will automatically download images, create containers, volumes and network.
+
+## Explanation
