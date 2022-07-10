@@ -51,7 +51,6 @@ services:
       PMA_HOSTS: ${FIRST_SERVER_CONTAINER_NAME},${SECOND_SERVER_CONTAINER_NAME},${THIRD_SERVER_CONTAINER_NAME}
       PMA_PORTS: ${MYSQL_PORT},${MYSQL_PORT},${MYSQL_PORT}
 
-
 volumes:
   first_server-volume:
     name: first_server-volume
